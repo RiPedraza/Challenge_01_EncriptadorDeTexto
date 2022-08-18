@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Encriptador de texto</title>
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <!-- # Elementos principales de la página -->
+        <header>
+            <!-- - Título de su sitio web -->  
+            <div class="div_Logo_Vector">
+                <img class="vector" src="Vector.svg" alt="logo de Alura">
+                <h1>Alura Challenges ONE - Encriptador de Texto</h1>
+            </div>
+        </header>
+         
+        <main>
+            
+            <section class="section_Input">
+                <!-- - Campo para el texto que va a ser encriptado/desencriptado -->
+                <input type="text" placeholder="Ingrese aquí su texto..">
+                
+                <div class="frame1_frame3">
+
+                    <div class="frame1">
+                        <img class="vector_advertencia" src="bi_exclamation-circle-fill.svg" alt="ícono de signo de advertencia">
+                        <p class="detalleAdvertencia">Solo letras minúsculas y sin acentos</p>
+                    </div>
+                   
+                    <div class="frame3">
+                        <!-- - Un botón para encriptar onclick="encriptar()" -->
+                        <button class="encriptar" id="encriptar">Encriptar</button>
+                        <!-- - Un botón para desencriptar -->
+                        <button class="desencriptar" id="desencriptar">Desencriptar</button>
+                    </div>
+
+                </div>
+            </section>
+            
+            <section class="section_Output">
+                <div class="rectanguloFondo">
+
+                    <img class="munheco" id="munheco" src="Muñeco.svg" alt="Muñeco">
+                    <div class="frame5" id="frame5">
+                        <p class="frame5_01">Ningún mensaje fue encontrado</p>
+                        <p class="frame5_02">Ingresa el texto que desees encriptar o desencriptar</p>
+                    </div> 
+                    
+                    <div class="div_Textarea_buttonCopiarText" id="id_textarea_buttonCopiarText">
+                        <!-- - Área para mostrar el texto encriptado/desencriptado. -->
+                        <textarea  cols="30" rows="10"></textarea>
+                        <button class="copiarText" id="copiarText">Copiar texto</button>
+                    </div>
+
+                </div>
+            </section>
+            
+        </main>
+        
+        <footer>
+            <hr>
+            <!-- # Extra!: Un rodapie  con los datos de la persona que desarrolló el sitio web! -->
+            Autor: Ricardo Pedraza. Developer in training.<br>
+            #challengeonecodificador3
+        </footer>
+
+    </body>
+</html>
+
+<script>
+    
+    //conectar con HTML
+    var inputTexto = document.querySelector("input");
+    var btnEncriptar = document.getElementById("encriptar");
+    var btnDesencriptar = document.getElementById("desencriptar");
+    var txtareaCampo = document.querySelector("textarea");
+    var btnCopiarText = document.getElementById("copiarText");
+    
+    var contenido = "";
+    
+    //Busca las VOCALES y devuelve ENCRIPTADO
+    var regEx_VOCAL = [/a/gi,/e/gi,/i/gi,/o/gi,/u/gi];
+    var array_ENCRIP = ["ai","enter","imes","ober","ufat"];
+
+    //Busca el ENCRIPTADO y me devuelve el ABC
+    var regEx_ENCRIP = [/ai/gi,/enter/gi,/imes/gi,/ober/gi,/ufat/gi];
+    var array_VOCAL = ["a","e","i","o","u"];
+
+    function mostrarResultados(){
+        document.getElementById("id_textarea_buttonCopiarText").style.display = "flex";
+        
+        document.getElementById("munheco").style.display = "none";
+        document.getElementById("frame5").style.display = "none";
+    }
+
+    function limpiar(){
+        inputTexto.value = ""; //contenido
+        inputTexto.focus();
+    }
+    
+
+    function encriptar(){
+        txtareaCampo.value = "";
+        mostrarResultados()
+        contenido = inputTexto.value;     
+        var texto = "";
+
+        for(var i = 0; i < contenido.length; i++){
+            
+            if(contenido[i] == array_VOCAL[0]){  
+
+                texto = texto + contenido[i].replace(regEx_VOCAL[0],array_ENCRIP[0]);
+
+            }else if(contenido[i] == array_VOCAL[1]){
+                
+                texto = texto + contenido[i].replace(regEx_VOCAL[1],array_ENCRIP[1]);
+
+            }else if(contenido[i] == array_VOCAL[2]){
+                
+                texto = texto + contenido[i].replace(regEx_VOCAL[2],array_ENCRIP[2]);
+
+            }else if(contenido[i] == array_VOCAL[3]){
+                
+                texto = texto + contenido[i].replace(regEx_VOCAL[3],array_ENCRIP[3]);
+
+            }else if(contenido[i] == array_VOCAL[4]){
+                
+                texto = texto + contenido[i].replace(regEx_VOCAL[4],array_ENCRIP[4]);
+
+            }else{
+                
+                texto = texto + contenido[i];
+            }
+        }
+
+        txtareaCampo.value = texto;
+        limpiar();
+    }
+
+
+
+    function desencriptar(){
+        txtareaCampo.value = "";
+        mostrarResultados()
+        contenido = inputTexto.value;     
+        var texto = "";
+
+        if(regEx_ENCRIP[0].test(contenido)){  
+            contenido = contenido.replace(regEx_ENCRIP[0],array_VOCAL[0]);
+        }
+
+        if(regEx_ENCRIP[1].test(contenido)){
+            contenido = contenido.replace(regEx_ENCRIP[1],array_VOCAL[1]);
+        }
+
+        if(regEx_ENCRIP[2].test(contenido)){
+            contenido = contenido.replace(regEx_ENCRIP[2],array_VOCAL[2]);
+        }
+
+        if(regEx_ENCRIP[3].test(contenido)){
+            contenido = contenido.replace(regEx_ENCRIP[3],array_VOCAL[3]);
+        }
+
+        if(regEx_ENCRIP[4].test(contenido)){    
+            contenido = contenido.replace(regEx_ENCRIP[4],array_VOCAL[4]);
+        }
+
+        txtareaCampo.value = contenido;
+        limpiar();
+    }
+
+
+    function copiar(){
+        txtareaCampo.select();
+        document.execCommand('copy');
+    }
+
+    btnEncriptar.onclick = encriptar;
+    btnDesencriptar.onclick = desencriptar;
+    btnCopiarText.onclick = copiar;
+
+</script>
+

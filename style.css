@@ -1,0 +1,272 @@
+body{
+    background: #E5E5E5;
+    padding: 10px;
+    
+}
+
+/* HEADER */
+.div_Logo_Vector{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    padding: 1em;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: rgba(10, 56, 113, 1);
+}
+
+
+/*MAIN & Section's*/
+
+main{
+    display: flex;
+    justify-content: space-between;
+}
+
+.section_Input{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 1em;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.section_Output{
+    margin: 0 1em;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*/////////////////////////////////////////////////////////////
+/** SECTION INPUT**/
+
+input{
+    /*bordes*/
+    background: #FFFFFF;
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+    border-radius: 13px;
+    border-color: rgba(10, 56, 113, 1);
+    /*aspecto y letras*/
+    height: 3em;
+    width: 85%;
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 150%;
+    font-family: 'Inter';
+    font-style: normal;
+    color: #0A3871;
+}
+
+input:hover{
+    border-radius: 12px;
+    border: 2px solid rgba(10, 56, 113, 0.445);
+    color: #0A3871;
+}
+
+.frame1{
+    display: flex;
+}
+
+.encriptar, .desencriptar{
+    box-sizing: border-box;
+    width: 250px;
+    height: 67px;
+    font-size: 1em;
+    border-radius: 24px;
+}
+
+.encriptar{
+    color: #D8DFE8;
+    background: #0A3871;
+    border: 1px solid #D8DFE8;
+    
+}
+
+.desencriptar{
+    color: #0A3871;
+    background: #D8DFE8;
+    border: 1px solid #0A3871;
+}
+
+
+.encriptar:hover{
+    border: 2px solid #D8DFE8;
+    font-weight: bold;
+}
+
+.desencriptar:hover{
+    border: 2px solid #0A3871;
+    font-weight: bold;
+}
+
+
+
+/*////////////////////////////////////////////////////////////
+/** SECTION OUTPUT**/
+.rectanguloFondo{
+    background: #FFFFFF;
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+    border-radius: 32px;
+    justify-content: center;
+
+    min-height: auto;
+    justify-content: start;
+    align-items: center;
+    align-content: center;
+    /* margin-right: 1em; */
+    text-align: center;
+    height: 80vh;
+
+}
+
+.frame5_01, .frame5_02{
+    width: 90%;
+    font-family: 'Inter';
+    font-style: normal;
+    text-align: center;
+    margin: 0 auto;
+    /* align-self: stretch; */
+}
+
+.frame5_01{
+    font-size: 20px;
+    color: #343A40;
+}
+
+.frame5_02{
+    font-size: 16px;
+    color: #495057;
+}
+
+.munheco, .frame5, .div_Textarea_buttonCopiarText{
+    padding-top: 1em;
+    margin-top: 1em;
+}
+
+.munheco{
+    height: 40vh;
+}
+
+.munheco, .frame5{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.div_Textarea_buttonCopiarText{
+    display: none;
+    /* display: flex; */ /*CON JS LO ACTIVO*/
+    height: 90%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+textarea{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: bold;
+    /* padding-top: 10%; */
+    /* margin-top: 10%; */
+    height: 80%;
+
+    color: #495057;
+    border: none;
+    resize: none;
+}
+
+.copiarText{
+    width: 80%;
+    /* height: 3em; */
+    height: 45px;
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+}
+
+
+
+/*//////////////////////////////////////
+/** FOOTER **/
+hr{
+    margin-top: 1em;
+}
+
+footer{
+    padding-left: 1em;
+    font-family: 'Inter';
+    font-style: oblique;
+    font-size: 18px;
+    color: #303c47;
+}
+
+/*///////////////////////////////////*/
+
+@media screen and (max-width:480px){
+
+    body{
+        background: linear-gradient(#E5E5E5, #0A3871);
+
+    }
+
+    main{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .section_Input, .section_Output{
+        margin: 0 auto;
+        margin-top: 2em;
+        margin-bottom: 2em;
+    }
+
+    input{
+        margin-top: 2em;
+        margin-bottom: 2em;
+        width: 100%;
+    }
+
+    .rectanguloFondo{
+        box-sizing: border-box;
+        /* width: 300px; */
+
+    }
+
+    .section_Output{
+        width: 90%;
+    }
+
+    textarea{
+        width: 90%;
+    }
+
+    header{
+        border: 1px solid #0A3871; 
+    }
+    
+    .vector{
+        padding-left: 0.3em; 
+        
+    }
+
+    h1{
+        font-size: 2em;
+        padding: 0.3em;
+        margin-left: 0.3em;
+        border-left: 1px solid #0A3871; 
+        color: #D8DFE8;
+        background: #0A3871;
+    }
+
+    footer{
+        color: #D8DFE8;
+    }
+
+}
